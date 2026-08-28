@@ -77,6 +77,7 @@ npm run dev
 
 ## Pruebas
 <img width="900" height="1600" alt="image" src="https://github.com/user-attachments/assets/1c82cac8-ff2d-44ac-8f8b-c43cfe24728d" />
-<img width="590" height="1280" alt="image" src="https://github.com/user-attachments/assets/46463182-93f6-4a19-a292-732cbd89d920" />
-<img width="1112" height="557" alt="image" src="https://github.com/user-attachments/assets/45c663ec-33a5-4409-8ace-dc9d77f42434" />
+<img width="1256" height="632" alt="image" src="https://github.com/user-attachments/assets/8a4f1961-a23a-4544-8a51-c46461f55346" />
+<img width="1086" height="212" alt="image" src="https://github.com/user-attachments/assets/16feb1c8-5f8b-4ecb-ae3d-7a5b7dd6fbe9" />
+<img width="1432" height="600" alt="image" src="https://github.com/user-attachments/assets/65000dd1-1a12-4f8a-963d-3cb3e3bf14f6" />
 
