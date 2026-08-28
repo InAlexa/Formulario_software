@@ -1,4 +1,5 @@
 import jwt
+from jwt import PyJWKClient
 import requests
 from django.conf import settings
 from django.contrib.auth.models import User
@@ -51,16 +52,30 @@ def enviar_verificacion_supabase(correo):
     return response
 
 
+_jwks_client = None
+
+
+def _get_jwks_client():
+    global _jwks_client
+    if _jwks_client is None:
+        jwks_url = f"{settings.SUPABASE_URL}/auth/v1/.well-known/jwks.json"
+        _jwks_client = PyJWKClient(jwks_url)
+    return _jwks_client
+
+
 def confirmar_verificacion(access_token):
     """
-    Valida el JWT que Supabase entrega al frontend tras confirmar el
-    correo, y si es válido, activa al usuario en Django.
+    Valida el JWT (firmado con ES256) usando la llave pública que
+    publica Supabase en su endpoint JWKS. Ya no se necesita ningún
+    secreto compartido en el backend.
     """
     try:
+        jwks_client = _get_jwks_client()
+        signing_key = jwks_client.get_signing_key_from_jwt(access_token)
         payload = jwt.decode(
             access_token,
-            settings.SUPABASE_JWT_SECRET,
-            algorithms=["HS256"],
+            signing_key.key,
+            algorithms=["ES256"],
             audience="authenticated",
         )
     except jwt.PyJWTError as exc:
