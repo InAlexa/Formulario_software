@@ -1,7 +1,10 @@
 import { useState } from "react";
 
 import { registrarUsuario } from "../service/registroService";
-import { registroFormInicial, validarRegistroForm } from "../forms/registroFormData";
+import {
+  registroFormInicial,
+  validarRegistroForm,
+} from "../forms/registroFormData";
 
 export const useRegistro = () => {
   const [valores, setValores] = useState(registroFormInicial);
