@@ -13,7 +13,10 @@ dist-ssr
 *.local
 
 .venv
-.env*
+.venv
+.env
+.env.local
+.env.*.local
 
 __pycache__/
 *.pyc

@@ -51,15 +51,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "config.wsgi.application"
 
-# --- Base de datos: PostgreSQL ---
+# --- Base de datos: PostgreSQL/MySQL ---
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
+        "ENGINE": "django.db.backends.mysql", #postgresql
         "NAME": config("DB_NAME", default="registro_db"),
-        "USER": config("DB_USER", default="postgres"),
-        "PASSWORD": config("DB_PASSWORD", default="postgres"),
+        "USER": config("DB_USER", default="root"),
+        "PASSWORD": config("DB_PASSWORD", default=""),
         "HOST": config("DB_HOST", default="localhost"),
-        "PORT": config("DB_PORT", default="5432"),
+        "PORT": config("DB_PORT", default="3306"),
+        "OPTIONS": {"charset": "utf8mb4"}, # Quitar en postgresql
     }
 }
 
