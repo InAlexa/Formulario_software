@@ -9,7 +9,7 @@ const registroApi = axios.create({
 
 export const postRegistro = (datos) => registroApi.post("/registro/", datos);
 
-export const postVerificarCorreo = (accessToken) =>
-  registroApi.post("/registro/verificar/", { access_token: accessToken });
+export const postVerificarCorreo = (token) =>
+  registroApi.post("/registro/verificar/", { token });
 
 export default registroApi;

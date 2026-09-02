@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 
 import { confirmarCorreo } from "../service/registroService";
 
-const obtenerAccessToken = () => {
+const obtenerToken = () => {
+  const paramsQuery = new URLSearchParams(window.location.search);
+  if (paramsQuery.get("token")) return paramsQuery.get("token");
+
   const hash = window.location.hash.replace("#", "");
-  const params = new URLSearchParams(hash);
-  return params.get("access_token");
+  return new URLSearchParams(hash).get("access_token");
 };
 
 export const useVerificacionCorreo = () => {
@@ -15,7 +17,7 @@ export const useVerificacionCorreo = () => {
 
   useEffect(() => {
     const verificar = async () => {
-      const accessToken = obtenerAccessToken();
+      const accessToken = obtenerToken();
 
       if (!accessToken) {
         setError("No se encontró un token de verificación en el enlace.");

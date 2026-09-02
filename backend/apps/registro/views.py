@@ -25,7 +25,7 @@ class VerificarCorreoView(APIView):
         serializer.is_valid(raise_exception=True)
 
         try:
-            perfil = confirmar_verificacion(serializer.validated_data["access_token"])
+            perfil = confirmar_verificacion(serializer.validated_data["token"])
         except ValueError as exc:
             return Response({"detail": str(exc)}, status=status.HTTP_400_BAD_REQUEST)
 

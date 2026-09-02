@@ -46,8 +46,8 @@ class RegistroSerializer(serializers.Serializer):
 
 class VerificarCorreoSerializer(serializers.Serializer):
     """
-    Recibe el access_token que Supabase entrega al frontend
+    Recibe el access_token que el proveedor entrega al frontend
     cuando el usuario confirma su correo.
     """
 
-    access_token = serializers.CharField()
+    token = serializers.CharField()  

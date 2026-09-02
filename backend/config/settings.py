@@ -89,10 +89,19 @@ CORS_ALLOWED_ORIGINS = config(
     "CORS_ALLOWED_ORIGINS", default="http://localhost:5173"
 ).split(",")
 
+EMAIL_VERIFICATION_PROVIDER = config("EMAIL_VERIFICATION_PROVIDER", default="resend")
+
 # --- Supabase (usado solo para verificación de correo) ---
 SUPABASE_URL = config("SUPABASE_URL", default="")
 SUPABASE_ANON_KEY = config("SUPABASE_ANON_KEY", default="")
 SUPABASE_JWT_SECRET = config("SUPABASE_JWT_SECRET", default="")
 SUPABASE_EMAIL_REDIRECT_URL = config(
     "SUPABASE_EMAIL_REDIRECT_URL", default="http://localhost:5173/verificado"
+)
+
+# --- Resend (usado solo para verificación de correo) ---
+RESEND_API_KEY = config("RESEND_API_KEY", default="")
+RESEND_FROM_EMAIL = config("RESEND_FROM_EMAIL", default="")
+EMAIL_VERIFICATION_REDIRECT_URL = config(
+    "EMAIL_VERIFICATION_REDIRECT_URL", default="http://localhost:5173/verificado"
 )
